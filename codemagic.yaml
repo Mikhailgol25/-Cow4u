@@ -1,0 +1,16 @@
+workflows:
+  default:
+    name: Default Workflow
+    environment:
+      vars:
+        ANDROID_SIGNING_KEYSTORE: Encrypted(...)
+        ANDROID_SIGNING_KEY_ALIAS: Alias
+        ANDROID_SIGNING_KEY_PASSWORD: Encrypted(...)
+        ANDROID_SIGNING_STORE_PASSWORD: Encrypted(...)
+    scripts:
+      - name: Install dependencies
+        script: |
+          flutter pub get
+      - name: Build APK
+        script: |
+          flutter build apk --release
