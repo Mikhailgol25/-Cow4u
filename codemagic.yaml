@@ -3,10 +3,11 @@ workflows:
     name: Default Workflow
     environment:
       vars:
-        ANDROID_SIGNING_KEYSTORE: Encrypted(...)
-        ANDROID_SIGNING_KEY_ALIAS: Alias
-        ANDROID_SIGNING_KEY_PASSWORD: Encrypted(...)
-        ANDROID_SIGNING_STORE_PASSWORD: Encrypted(...)
+        # Замените значения переменных на свои
+        ANDROID_SIGNING_KEYSTORE: your_base64_encoded_keystore
+        ANDROID_SIGNING_KEY_ALIAS: your_key_alias
+        ANDROID_SIGNING_KEY_PASSWORD: your_key_password
+        ANDROID_SIGNING_STORE_PASSWORD: your_store_password
     scripts:
       - name: Install dependencies
         script: |
@@ -14,3 +15,5 @@ workflows:
       - name: Build APK
         script: |
           flutter build apk --release
+    artifacts:
+      - build/app/outputs/flutter-apk/app-release.apk
