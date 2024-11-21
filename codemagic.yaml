@@ -2,18 +2,17 @@ workflows:
   default:
     name: Default Workflow
     environment:
-      vars:
-        # Замените значения переменных на свои
-        ANDROID_SIGNING_KEYSTORE: your_base64_encoded_keystore
-        ANDROID_SIGNING_KEY_ALIAS: your_key_alias
-        ANDROID_SIGNING_KEY_PASSWORD: your_key_password
-        ANDROID_SIGNING_STORE_PASSWORD: your_store_password
+      flutter: stable # Или замените на конкретную версию, например: "3.10.5"
     scripts:
+      - name: Navigate to project directory
+        script: |
+          cd Cows4u # Укажите путь к директории с pubspec.yaml, замените "Cows4u" на актуальный путь
       - name: Install dependencies
-        script: |
-          flutter pub get
+        script: flutter pub get
       - name: Build APK
-        script: |
-          flutter build apk --release
+        script: flutter build apk --release
     artifacts:
       - build/app/outputs/flutter-apk/app-release.apk
+    cache:
+      paths:
+        - ~/.pub-cache
