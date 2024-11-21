@@ -4,8 +4,6 @@ workflows:
     environment:
       flutter: stable
     scripts:
-      - name: Navigate to project directory
-        script: cd Cows4u
       - name: Install dependencies
         script: flutter pub get
       - name: Build APK
