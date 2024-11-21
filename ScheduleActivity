@@ -1,0 +1,21 @@
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_schedule.*
+
+class ScheduleActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_schedule)
+
+        // Получение данных из базы
+        val cowCount = 10 // Пример
+        val feedAmount = 50.0 // Пример
+
+        val feedPerCow = feedAmount / cowCount
+        tvSchedule.text = """
+            Утро: ${(feedPerCow * 0.4).toStringAsFixed(1)} кг на корову
+            День: ${(feedPerCow * 0.3).toStringAsFixed(1)} кг на корову
+            Вечер: ${(feedPerCow * 0.3).toStringAsFixed(1)} кг на корову
+        """.trimIndent()
+    }
+}
