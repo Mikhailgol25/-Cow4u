@@ -2,11 +2,10 @@ workflows:
   default:
     name: Default Workflow
     environment:
-      flutter: stable # Или конкретная версия, например: "3.10.5"
+      flutter: stable
     scripts:
       - name: Navigate to project directory
-        script: |
-          cd Cows4u # Укажите актуальный путь к вашему проекту
+        script: cd Cows4u
       - name: Install dependencies
         script: flutter pub get
       - name: Build APK
