@@ -1,0 +1,19 @@
+workflows:
+  default:
+    name: Default Workflow
+    environment:
+      vars:
+        # Замените значения переменных на свои
+        ANDROID_SIGNING_KEYSTORE: your_base64_encoded_keystore
+        ANDROID_SIGNING_KEY_ALIAS: your_key_alias
+        ANDROID_SIGNING_KEY_PASSWORD: your_key_password
+        ANDROID_SIGNING_STORE_PASSWORD: your_store_password
+    scripts:
+      - name: Install dependencies
+        script: |
+          flutter pub get
+      - name: Build APK
+        script: |
+          flutter build apk --release
+    artifacts:
+      - build/app/outputs/flutter-apk/app-release.apk
