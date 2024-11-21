@@ -1,0 +1,19 @@
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_add_data.*
+
+class AddDataActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_add_data)
+
+        btnSave.setOnClickListener {
+            // Сохранение данных в локальную базу данных
+            val cowCount = etCowCount.text.toString().toInt()
+            val feedAmount = etFeedAmount.text.toString().toDouble()
+
+            // Передача данных в базу
+            // ...
+        }
+    }
+}
