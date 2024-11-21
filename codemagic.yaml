@@ -2,17 +2,14 @@ workflows:
   default:
     name: Default Workflow
     environment:
-      flutter: stable # Или замените на конкретную версию, например: "3.10.5"
+      flutter: stable # Или конкретная версия, например: "3.10.5"
     scripts:
       - name: Navigate to project directory
         script: |
-          cd Cows4u # Укажите путь к директории с pubspec.yaml, замените "Cows4u" на актуальный путь
+          cd Cows4u # Укажите актуальный путь к вашему проекту
       - name: Install dependencies
         script: flutter pub get
       - name: Build APK
         script: flutter build apk --release
     artifacts:
       - build/app/outputs/flutter-apk/app-release.apk
-    cache:
-      paths:
-        - ~/.pub-cache
